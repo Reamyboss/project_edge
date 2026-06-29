@@ -1,9 +1,10 @@
 import typer
 from rich import print
 
-app = typer.Typer(
-    help="🚀 Blocktracex Developer CLI"
-)
+from btx.scaffold import create_project
+from btx.doctor import run_doctor
+
+app = typer.Typer(help="Blocktracex Developer CLI")
 
 
 @app.command()
@@ -13,9 +14,21 @@ def version():
 
 
 @app.command()
-def hello(name: str = "Founder"):
+def hello():
     """Say hello."""
-    print(f"👋 Welcome to Blocktracex, {name}!")
+    print("[bold blue]Hello from Blocktracex![/bold blue]")
+
+
+@app.command()
+def new(name: str):
+    """Create a new Blocktracex project."""
+    create_project(name)
+
+
+@app.command()
+def doctor():
+    """Check the development environment."""
+    run_doctor()
 
 
 if __name__ == "__main__":
