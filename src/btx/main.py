@@ -4,7 +4,12 @@ from rich import print
 from btx.scaffold import create_project
 from btx.doctor import run_doctor
 
-app = typer.Typer(help="Blocktracex Developer CLI")
+app = typer.Typer(
+    name="btx",
+    help="Blocktracex Developer CLI\n\nBuild • Transform • eXecute.",
+    no_args_is_help=True,
+    rich_markup_mode="rich",
+)
 
 
 @app.command()
