@@ -1,3 +1,4 @@
+from btx.config import create_config
 from pathlib import Path
 import subprocess
 from rich import print
@@ -18,16 +19,22 @@ PROJECT_FOLDERS = [
     "data/raw",
     "data/processed",
 ]
+def scaffold_directory(root: Path, project_name: str):
+    """Scaffold a Blocktracex project inside an existing directory."""
 
+    print("[bold cyan]🚀 Creating Blocktracex project...[/bold cyan]\n")
 
 def create_project(name: str):
     root = Path(name)
+    
 
     if root.exists():
         print(f"[red]❌ Project '{name}' already exists.[/red]")
         return
 
-    print("[bold cyan]🚀 Creating Blocktracex project...[/bold cyan]\n")
+    root.mkdir(parents=True)
+
+    scaffold_directory(root, name)
 
     # Create folders
     for folder in PROJECT_FOLDERS:
@@ -64,7 +71,7 @@ def create_project(name: str):
     "",
     encoding="utf-8",
 )
-
+    create_config(root, name)
     # Initialize Git#
     try:
         subprocess.run(

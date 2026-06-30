@@ -3,6 +3,7 @@ from rich import print
 
 from btx.scaffold import create_project
 from btx.doctor import run_doctor
+from btx.init import init_project
 
 app = typer.Typer(
     name="btx",
@@ -34,6 +35,16 @@ def new(name: str):
 def doctor():
     """Check the development environment."""
     run_doctor()
+
+
+if __name__ == "__main__":
+    app()
+    from btx.init import init_project
+
+@app.command()
+def init():
+    """Initialize the current directory."""
+    init_project()
 
 
 if __name__ == "__main__":
