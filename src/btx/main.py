@@ -4,6 +4,7 @@ from rich import print
 from btx.scaffold import create_project
 from btx.doctor import run_doctor
 from btx.init import init_project
+from btx.info import show_project_info
 
 app = typer.Typer(
     name="btx",
@@ -37,14 +38,16 @@ def doctor():
     run_doctor()
 
 
-if __name__ == "__main__":
-    app()
-    from btx.init import init_project
-
 @app.command()
 def init():
     """Initialize the current directory."""
     init_project()
+
+
+@app.command()
+def info():
+    """Display information about the current project."""
+    show_project_info()
 
 
 if __name__ == "__main__":

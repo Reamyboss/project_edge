@@ -7,7 +7,9 @@ src/blocktracex_cli.egg-info/entry_points.txt
 src/blocktracex_cli.egg-info/requires.txt
 src/blocktracex_cli.egg-info/top_level.txt
 src/btx/__init__.py
+src/btx/config.py
 src/btx/doctor.py
+src/btx/info.py
 src/btx/init.py
 src/btx/main.py
 src/btx/scaffold.py
