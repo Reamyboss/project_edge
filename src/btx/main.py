@@ -5,6 +5,7 @@ from btx.scaffold import create_project
 from btx.doctor import run_doctor
 from btx.init import init_project
 from btx.info import show_project_info
+from btx.validate import validate_project
 
 app = typer.Typer(
     name="btx",
@@ -37,6 +38,12 @@ def doctor():
     """Check the development environment."""
     run_doctor()
 
+
+@app.command()
+def validate():
+    """Validate the current Blocktracex project."""
+    validate_project()
+    
 
 @app.command()
 def init():
